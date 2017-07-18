@@ -8,6 +8,8 @@ from std_msgs.msg import String
 
 import speech_recognition as sr
 
+key = r""""""
+
 def speech():
     r = sr.Recognizer()
     pub = rospy.Publisher("speech", String, queue_size=1)
@@ -19,7 +21,7 @@ def speech():
             audio = r.listen(source)
             if not rospy.get_param("offline"):
                 try:
-                    data = r.recognize_google(audio)
+                    data = r.recognize_google_cloud(audio,key)
                     pub.publish(data)
                 except:
                     rospy.logwarn("No word detected")

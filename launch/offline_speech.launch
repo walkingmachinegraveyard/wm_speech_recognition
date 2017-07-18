@@ -1,0 +1,4 @@
+<launch>
+    <param name="offline" value="True" type="bool"/>
+    <node name="speech" pkg="wm_speech_recognition" type="speech.py"/>
+</launch>
